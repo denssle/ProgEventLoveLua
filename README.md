@@ -1,17 +1,20 @@
-# How to löve (osx)
+# How to löve
 
 ### Download & Install
 * Download at https://love2d.org/#download
-* Unzip the downloaded File to ~/Applications/
+* Unzip the downloaded File to *~/Applications/*
 
 ### Hello World!
 * Create a *main.lua* with your favourite Editor and type:
-    ```sh
+
+    ```lua
     function love.draw()
         love.graphics.print("Hello World", 400, 300)
     end
     ```
+    
 * Start your first Application:
+
      ```sh
     $ /Applications/love.app/Contents/MacOS/love ~/path/to/mygame
     ```
