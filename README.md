@@ -1,21 +1,29 @@
-How to löve:
+# How to löve (osx)
 
-1. Download here: 
-https://love2d.org/#download
-and put it into Applications.
+### Download & Install
+* Download at https://love2d.org/#download
+* Unzip the downloaded File to ~/Applications/
 
-2. Create a main.lua and write: 
-function love.draw()
-    love.graphics.print("Hello World", 400, 300)
-end
+### Hello World!
+* Create a *main.lua* with your favourite Editor and type:
+    ```sh
+    function love.draw()
+        love.graphics.print("Hello World", 400, 300)
+    end
+    ```
+* Start your first Application:
+     ```sh
+    $ /Applications/love.app/Contents/MacOS/love ~/path/to/mygame
+    ```
 
-3. Start your "Hello World":
-/Applications/love.app/Contents/MacOS/love ~/path/to/mygame
+### Recommended stuff
 
+* [Atom] - Awesome Editor!
+* [Lua-Plugin] - Lua-Language-Plugin for Atom.
+* [Math] - Löve-wiki for general math.
+* [Config] - Löve-wiki for Config-Files.
 
-Some links: 
-IDE:    http://atom.io/
-PlugIn: https://atom.io/packages/language-lua
-
-https://love2d.org/wiki/General_math
-https://www.love2d.org/wiki/Config_Files
+[Atom]: <http://atom.io/>
+[Lua-Plugin]: <https://atom.io/packages/language-lua>
+[Math]: <https://love2d.org/wiki/General_math>
+[Config]: <https://www.love2d.org/wiki/Config_Files>
