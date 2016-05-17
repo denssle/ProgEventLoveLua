@@ -2,11 +2,10 @@
 
 ### Download & Install
 * Download at https://love2d.org/#download
-* Unzip the downloaded File to *~/Applications/*
+* Unzip the downloaded file to *~/Applications/*
 
 ### Hello World!
 * Create a *main.lua* with your favourite Editor and type:
-
     ```lua
     function love.draw()
         love.graphics.print("Hello World", 400, 300)
