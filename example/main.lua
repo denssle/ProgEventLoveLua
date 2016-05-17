@@ -3,10 +3,14 @@ player = { x = 200, y = 710, speed = 150, img = nil }
 isAlive = true
 score = 0
 
+-- Sounds
+soundWeapon = love.audio.newSource("assets/Laser.mp3")
+soundWeapon:setVolume(1.0)
+
 -- Timers
 -- We declare these here so we don't have to edit them multiple places
 canShoot = true
-canShootTimerMax = 0.5
+canShootTimerMax = 1.0
 canShootTimer = canShootTimerMax
 
 -- Image Storage
@@ -16,15 +20,13 @@ bulletImg = love.graphics.newImage('assets/pink_bullet.png')
 bullets = {} -- array of current bullets being drawn and updated
 
 --More timers
-createEnemyTimerMax = 0.4
+createEnemyTimerMax = 0.3
 createEnemyTimer = createEnemyTimerMax
 
 -- More images
 enemyImg = love.graphics.newImage('assets/enemy.png')
 -- More storage
 enemies = {} -- array of current enemies on screen
-
--- love.graphics.setBackgroundColor( 24 , 12 , 255)
 
 function love.load(arg)
     player.img = love.graphics.newImage("/assets/crab.png")
@@ -53,6 +55,10 @@ function love.update(dt)
         table.insert(bullets, newBullet)
         canShoot = false
         canShootTimer = canShootTimerMax
+        if isAlive then
+          soundWeapon:play()
+        else
+        end
     end
     -- update the positions of bullets
     for i, bullet in ipairs(bullets) do
@@ -94,13 +100,18 @@ function love.draw(dt)
           love.graphics.draw(background, i * background:getWidth(), j * background:getHeight())
         end
       end
+        love.graphics.setColor(255, 255, 255)
+        love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
         love.graphics.draw(player.img, player.x, player.y)
     else
-      for i = 0, love.graphics.getWidth() / background:getWidth() do
-        for j = 0, love.graphics.getHeight() / background:getHeight() do
+      for i = 0, love.graphics.getWidth() / background2:getWidth() do
+        for j = 0, love.graphics.getHeight() / background2:getHeight() do
           love.graphics.draw(background2, i * background2:getWidth(), j * background2:getHeight())
         end
       end
+        canShoot = false
+        bullets = {}
+        enemies = {}
         love.graphics.print("Press 'R' to restart", love.graphics:getWidth()/2-50, love.graphics:getHeight()/2-10)
     end
 
