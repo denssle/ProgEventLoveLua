@@ -6,7 +6,7 @@ score = 0
 -- Timers
 -- We declare these here so we don't have to edit them multiple places
 canShoot = true
-canShootTimerMax = 0.2
+canShootTimerMax = 0.5
 canShootTimer = canShootTimerMax
 
 -- Image Storage
@@ -21,12 +21,13 @@ createEnemyTimer = createEnemyTimerMax
 
 -- More images
 enemyImg = love.graphics.newImage('assets/enemy.png')
-
 -- More storage
 enemies = {} -- array of current enemies on screen
 
+-- love.graphics.setBackgroundColor( 24 , 12 , 255)
+
 function love.load(arg)
-    player.img = love.graphics.newImage("/assets/plane.png")
+    player.img = love.graphics.newImage("/assets/crab.png")
     --we now have an asset ready to be used inside Love
 end
 
@@ -83,10 +84,23 @@ function love.update(dt)
     end
 end
 
+background = love.graphics.newImage ("/assets/water.jpg")
+background2 = love.graphics.newImage ("/assets/fire.jpg")
+
 function love.draw(dt)
     if isAlive then
+      for i = 0, love.graphics.getWidth() / background:getWidth() do
+        for j = 0, love.graphics.getHeight() / background:getHeight() do
+          love.graphics.draw(background, i * background:getWidth(), j * background:getHeight())
+        end
+      end
         love.graphics.draw(player.img, player.x, player.y)
     else
+      for i = 0, love.graphics.getWidth() / background:getWidth() do
+        for j = 0, love.graphics.getHeight() / background:getHeight() do
+          love.graphics.draw(background2, i * background2:getWidth(), j * background2:getHeight())
+        end
+      end
         love.graphics.print("Press 'R' to restart", love.graphics:getWidth()/2-50, love.graphics:getHeight()/2-10)
     end
 
@@ -97,7 +111,7 @@ function love.draw(dt)
     for i, enemy in ipairs(enemies) do
         love.graphics.draw(enemy.img, enemy.x, enemy.y)
     end
-    love.graphics.setColor(255, 255, 255)
+    -- love.graphics.setColor(255, 255, 255)
     love.graphics.print("SCORE: " .. tostring(score), 400, 10)
 end
 

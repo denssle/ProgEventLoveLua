@@ -11,7 +11,7 @@
         love.graphics.print("Hello World", 400, 300)
     end
     ```
-    
+
 * Start your first Application:
 
      ```sh
@@ -24,6 +24,10 @@
 * [Lua-Plugin] - Lua-Language-Plugin for Atom.
 * [Math] - Löve-wiki for general math.
 * [Config] - Löve-wiki for Config-Files.
+
+### Also check out our example!
+
+![Screenshot](/example/screenshot.png?raw=true "Crablaser")
 
 [Atom]: <http://atom.io/>
 [Lua-Plugin]: <https://atom.io/packages/language-lua>
